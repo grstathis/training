@@ -1,25 +1,26 @@
 __author__ = 'stathis'
 
-H=[[0,10], [1,5], [2,7],
-   [3,6],[4,5],[5,2],[6,3],
-   [7,5],[8,4],[9,1]]
+def rob(nums):
+    if len(nums) == 0:  return 0
+    if len(nums) <= 2:  return max(nums)
+    max_money = [0] * len(nums)
+    max_money[0] = nums[0]
+    max_money[1] = max(nums[0], nums[1])
+    print(max_money)
+    for house in range(2, len(nums)):
+        print("nums",nums[house])
+        print("max_money[house-1]",max_money[house-1])
+        print(" max_money[house-2]+nums", max_money[house-2]+nums[house])
+        max_money[house] = max(max_money[house-1], max_money[house-2]+nums[house])
+        print("after",max_money[house])
+    return max_money[-1]
 
-H.sort(key=lambda x: x[1],reverse=True)
+if __name__ == "__main__":
+    H=[[0,10], [1,5], [2,7],
+    [3,6],[4,5],[5,2],[6,3],
+    [7,5],[8,4],[9,1]]
 
-H_robbed = []
-H_robbed_money_l = []
-H_total_money_l = []
-
-for i in H:
-    H_total_money_l.append(i[1])
-    append_flag = True
-    for j in H_robbed:
-        if i[0] == j+1 or i[0] == j-1 or i[0] == j :
-            append_flag = False
-            break
-    if append_flag :
-        H_robbed.append(i[0])
-        H_robbed_money_l.append(i[1])
-    print("houses robbed:",H_robbed)
-
-print("sum of money robbed :",sum(H_robbed_money_l), "out of",sum(H_total_money_l))
+    H_money = [i[1] for i in H]
+    print(H_money)
+    print(sorted(H_money))
+    print("sum of money robbed from dp:", rob(H_money))
