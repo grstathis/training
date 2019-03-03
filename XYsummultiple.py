@@ -33,7 +33,6 @@ if __name__ == '__main__':
     y = 5
     l = 1000000
 
-
     ts = time.time()
     res = sum_multi_x_y_simple_for(x, y, l)
     te = time.time()
