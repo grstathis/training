@@ -1,4 +1,6 @@
 __author__ = 'stathis'
+#find longest substring in a string sequence.
+
 
 string = "aabbfffeeewertuuiirrrrrrr"
 longest_substr = ""
