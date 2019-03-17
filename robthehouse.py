@@ -1,4 +1,7 @@
 __author__ = 'stathis'
+#There are n houses build in a line, each of which contains some value in it. A thief is going to steal the maximal
+#value of these houses, but he can’t steal in two adjacent houses because owner of the stolen houses will tell his two neighbour left and right side.
+#What is the maximum stolen value.
 
 def rob(nums):
     if len(nums) == 0:  return 0
